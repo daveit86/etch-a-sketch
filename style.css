@@ -24,3 +24,27 @@ body{
     height: 40em;
     border:2px solid black
 }
+
+button{
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 0px;
+    border-bottom: none;
+    transition: all 200ms;
+    border:none;
+    padding:1em;
+    flex:1;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+#controls{
+    display: flex;
+    width: 100%;
+    border: 2px solid black;
+    border-bottom:none;
+    box-sizing: border-box;
+}

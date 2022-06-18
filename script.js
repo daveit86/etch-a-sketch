@@ -1,8 +1,13 @@
 console.log("loaded!");
 
 const screen=document.querySelector("#screen");
-const btn=document.querySelector("button");
+const btn_makedisplay=document.querySelector("button.makeDisplay");
+const btn_makeRainbow=document.querySelector("button.makeRainbow");
+let penColor=0;
+let penLight=0;
+
 let isMouseDown=false;
+let isRainbow=false;
 
 function populateScreen(sideNum)
 {
@@ -16,7 +21,18 @@ function populateScreen(sideNum)
         pixel.addEventListener("mouseover",(e)=>{
             if(isMouseDown)
             {
-                e.target.style.backgroundColor='black';
+                if(isRainbow)
+                {
+                    e.target.style.backgroundColor=`hsl(${penColor},100%,${penLight}%)`;
+                }
+                else
+                {
+                    e.target.style.backgroundColor='black';
+                }
+                penColor=Math.random()*360;
+                penLight=Math.random()*100;
+                console.log(`hsl(${penColor},100%,${penLight})`);
+                console.log("pixel color:"+e.target.style.backgroundColor);
             }
            
         })
@@ -29,7 +45,7 @@ function promptSideNum()
     return prompt("Number of pixels per side?(100 max)");
 }
 
-btn.addEventListener("mouseup",(e)=>{
+btn_makedisplay.addEventListener("mouseup",(e)=>{
     let sideNum=promptSideNum();
     if(sideNum<1||sideNum>100)
     {
@@ -45,4 +61,18 @@ document.addEventListener("mousedown",(e)=>{
 
 document.addEventListener("mouseup",(e)=>{
     isMouseDown=false;
+})
+
+btn_makeRainbow.addEventListener("click",(e)=>{
+    if(isRainbow)
+    {
+        e.target.textContent="Rainbow";
+        isRainbow=false;
+    }
+    else
+    {
+        e.target.textContent="Black";
+        isRainbow=true;
+    }
+    
 })
