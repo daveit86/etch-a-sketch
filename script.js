@@ -23,16 +23,31 @@ function populateScreen(sideNum)
             {
                 if(isRainbow)
                 {
-                    e.target.style.backgroundColor=`hsl(${penColor},100%,${penLight}%)`;
+                    if(e.target.classList.contains("colored"))
+                    {
+                        let light=e.target.getAttribute("light");
+                        let color=e.target.getAttribute("color");
+                        light-=10;
+                        if(light<0){light=0;}
+                        e.target.style.backgroundColor=`hsl(${color},100%,${light}%)`;
+                        e.target.setAttribute("light",light);
+                        e.target.setAttribute("color",color);
+                    }
+                    else
+                    {
+                        e.target.style.backgroundColor=`hsl(${penColor},100%,${penLight}%)`;
+                        e.target.setAttribute("light",penLight);
+                        e.target.setAttribute("color",penColor);
+                    }
+                    
                 }
                 else
                 {
                     e.target.style.backgroundColor='black';
                 }
-                penColor=Math.random()*360;
-                penLight=Math.random()*100;
-                console.log(`hsl(${penColor},100%,${penLight})`);
-                console.log("pixel color:"+e.target.style.backgroundColor);
+                penColor=Math.round(Math.random()*360);
+                penLight=Math.round(Math.random()*100);
+                e.target.classList.add("colored");
             }
            
         })
