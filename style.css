@@ -10,12 +10,19 @@ body{
 
 .pixel{
     background-color: black;
-    border:1px solid black;
-    width: 2em;
-    height: 2em;
+    border:0px solid black;
+}
+
+.pixel:hover{
+    background-color: white;
 }
 
 #content{
     flex-direction: column;
 }
 
+#screen{
+    flex-wrap: wrap;
+    width: 40em;
+    height: 40em;
+}
