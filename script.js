@@ -2,6 +2,7 @@ console.log("loaded!");
 
 const screen=document.querySelector("#screen");
 const btn=document.querySelector("button");
+let isMouseDown=false;
 
 function populateScreen(sideNum)
 {
@@ -12,11 +13,12 @@ function populateScreen(sideNum)
         pixel.classList.add("pixel");
         pixel.style.width=(40/sideNum)+"em";
         pixel.style.height=(40/sideNum)+"em";
-        pixel.addEventListener("mouseout",(e)=>{
-            e.target.style.transition="all 500ms";
-        })
         pixel.addEventListener("mouseover",(e)=>{
-            e.target.style.transition="none";
+            if(isMouseDown)
+            {
+                e.target.style.backgroundColor='black';
+            }
+           
         })
         screen.appendChild(pixel);
     }
@@ -37,3 +39,10 @@ btn.addEventListener("mouseup",(e)=>{
     populateScreen(sideNum);
 })
 
+document.addEventListener("mousedown",(e)=>{
+    isMouseDown=true;
+})
+
+document.addEventListener("mouseup",(e)=>{
+    isMouseDown=false;
+})

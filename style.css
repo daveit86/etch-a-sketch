@@ -9,12 +9,9 @@ body{
 }
 
 .pixel{
-    background-color: black;
-    border:0px solid black;
-}
-
-.pixel:hover{
     background-color: white;
+    border: 1px solid grey;
+    box-sizing: border-box;
 }
 
 #content{
@@ -25,4 +22,5 @@ body{
     flex-wrap: wrap;
     width: 40em;
     height: 40em;
+    border:2px solid black
 }
