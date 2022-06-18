@@ -1,0 +1,21 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixel{
+    background-color: black;
+    border:1px solid black;
+    width: 2em;
+    height: 2em;
+}
+
+#content{
+    flex-direction: column;
+}
+
