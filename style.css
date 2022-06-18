@@ -20,8 +20,8 @@ body{
 
 #screen{
     flex-wrap: wrap;
-    width: 40em;
-    height: 40em;
+    width: 50em;
+    height: 50em;
     border:2px solid black
 }
 

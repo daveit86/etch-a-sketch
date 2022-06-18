@@ -16,8 +16,8 @@ function populateScreen(sideNum)
     {
         let pixel=document.createElement("div");
         pixel.classList.add("pixel");
-        pixel.style.width=(40/sideNum)+"em";
-        pixel.style.height=(40/sideNum)+"em";
+        pixel.style.width=(50/sideNum)+"em";
+        pixel.style.height=(50/sideNum)+"em";
         pixel.addEventListener("mouseover",(e)=>{
             if(isMouseDown)
             {
